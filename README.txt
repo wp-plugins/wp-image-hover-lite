@@ -1,4 +1,4 @@
-=== Plugin Name ===
+=== Wordpress Image Hover Lite ===
 Contributors: phpbits
 Donate link: http://codecanyon.net/item/wordpress-image-hover-showcase/7455102?ref=phpbits
 Tags:  facebook, image hover, sharing, social hover, social media, social share, traffic, twitter, wordpress image hover, hover, image
@@ -27,6 +27,7 @@ Increase social sharing to boost your website traffic with <strong>Wordpress Im
 
 <h4>Looking for more?</h4>
 Get <a href="http://codecanyon.net/item/wordpress-image-hover-showcase/7455102?ref=phpbits">Wordpress Image Hover Showcase</a> if you want the following features :
+
 * Add WP Image Hover on every sidebar using custom widget
 * Add Customizable Call to Action button for any downloadable links, marketing links, buy now button or any url target you want!
 * Wordpress Image Title Support to add Title Caption
@@ -46,7 +47,7 @@ e.g.
 
 == Frequently Asked Questions ==
 
-For more information,refer to <a href="http://wp-authorbox.phpbitsplugins.com/">WP Image Hover Lite</a> or ask via forum and I will be very happy to help you.
+For more information,refer to <a href="http://wp-image-hover.phpbitsplugins.com/">WP Image Hover Lite</a> or ask via forum and I will be very happy to help you.
 
 == Screenshots ==
 
