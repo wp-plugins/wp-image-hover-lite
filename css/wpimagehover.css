@@ -1,0 +1,272 @@
+@font-face {
+  font-family: 'wpimagehover-fontello';
+  src: url("../fonts/fontello/fontello.eot?76834511");
+  src: url("../fonts/fontello/fontello.eot?76834511#iefix") format("embedded-opentype"), url("../fonts/fontello/fontello.woff?76834511") format("woff"), url("../fonts/fontello/fontello.ttf?76834511") format("truetype"), url("../fonts/fontello/fontello.svg?76834511#fontello") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 15, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  color: #ed4e6e;
+  text-align: center;
+  line-height: 0.8em;
+}
+/* line 25, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper.alignnone {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+}
+/* line 29, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper img {
+  position: relative;
+  z-index: 10;
+}
+/* line 34, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper .wpimagehover-overlay {
+  position: absolute;
+  width: 100%;
+  height: 99.8%;
+  z-index: 1;
+  left: 50%;
+  right: 50%;
+  background: #2c3f52;
+}
+/* line 43, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper .wpimagehover-caption {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  height: auto;
+  width: 100%;
+  top: auto;
+  bottom: 0;
+  padding: 10px 0px;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+/* line 58, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper .wpimagehover-caption h3 {
+  padding: 10px;
+  margin: 0px;
+  font-size: 15px;
+  height: auto;
+}
+/* line 66, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper .wpimagehover-button {
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  text-decoration: none;
+  margin: 2px 15px;
+  padding: 10px 15px;
+  color: #fff;
+  background: #ed4e6e;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 18px;
+}
+/* line 77, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper .wpimagehover-button .wpimagehover-btn-icon {
+  font-size: 14px;
+}
+/* line 81, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper .wpimagehover-button:hover {
+  background: #333;
+}
+/* line 86, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper.wpimagehover-small .wpimagehover-button, .wpimagehover-wrapper.wpimagehover-small .wpimagehover-socials {
+  float: none;
+}
+/* line 89, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper.wpimagehover-small .wpimagehover-button {
+  margin: 0px;
+}
+/* line 96, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper.wpimagehover-anim-fade .wpimagehover-caption {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  opacity: 0.2;
+  -webkit-transition: opacity 0.35s ease-in-out;
+  -moz-transition: opacity 0.35s ease-in-out;
+  -o-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+/* line 100, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper.wpimagehover-anim-fade img {
+  -webkit-transition: opacity 0.35s ease-in-out;
+  -moz-transition: opacity 0.35s ease-in-out;
+  -o-transition: opacity 0.35s ease-in-out;
+  transition: opacity 0.35s ease-in-out;
+}
+/* line 104, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper.wpimagehover-anim-fade:hover .wpimagehover-caption {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  opacity: 1;
+  z-index: 50;
+}
+/* line 108, ../scss/wpimagehover.scss */
+.wpimagehover-wrapper.wpimagehover-anim-fade:hover img {
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20);
+  opacity: 0.2;
+}
+
+/* line 115, ../scss/wpimagehover.scss */
+.wpimagehover-socials-circle .wpimagehover-icon {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+}
+
+/* line 119, ../scss/wpimagehover.scss */
+.wpimagehover-socials {
+  position: relative;
+  z-index: 50;
+  display: block;
+  padding: 0px 10px 10px;
+  margin: 0 auto;
+}
+/* line 126, ../scss/wpimagehover.scss */
+.wpimagehover-socials .buttons {
+  display: none !important;
+}
+/* line 130, ../scss/wpimagehover.scss */
+.wpimagehover-socials a {
+  text-decoration: none;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+/* line 137, ../scss/wpimagehover.scss */
+.wpimagehover-socials .wpimagehover-icon {
+  font-family: 'wpimagehover-fontello';
+  font-size: 16px;
+  position: relative;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  zoom: 1;
+  *display: inline;
+  margin: 5px;
+}
+/* line 144, ../scss/wpimagehover.scss */
+.wpimagehover-socials .wpimagehover-icon:before {
+  display: block;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  speak: none;
+}
+/* line 154, ../scss/wpimagehover.scss */
+.wpimagehover-socials .wpimagehover-icon.wpimagehover-icon-twitter:before {
+  content: '\e801';
+}
+/* line 155, ../scss/wpimagehover.scss */
+.wpimagehover-socials .wpimagehover-icon.wpimagehover-icon-facebook:before {
+  content: '\e800';
+}
+/* line 156, ../scss/wpimagehover.scss */
+.wpimagehover-socials .wpimagehover-icon.wpimagehover-icon-googleplus:before {
+  content: '\e802';
+}
+/* line 157, ../scss/wpimagehover.scss */
+.wpimagehover-socials .wpimagehover-icon.wpimagehover-icon-pinterest:before {
+  content: '\e807';
+}
+/* line 158, ../scss/wpimagehover.scss */
+.wpimagehover-socials .wpimagehover-icon.wpimagehover-icon-linkedin:before {
+  content: '\e803';
+}
+/* line 159, ../scss/wpimagehover.scss */
+.wpimagehover-socials .wpimagehover-icon.wpimagehover-icon-stumbleupon:before {
+  content: '\e80d';
+}
+/* line 160, ../scss/wpimagehover.scss */
+.wpimagehover-socials .wpimagehover-icon.wpimagehover-icon-digg:before {
+  content: '\e826';
+}
+/* line 161, ../scss/wpimagehover.scss */
+.wpimagehover-socials .wpimagehover-icon.wpimagehover-icon-delicious:before {
+  content: '\e82a';
+}
+/* line 165, ../scss/wpimagehover.scss */
+.wpimagehover-socials.wpimagehover-socials-colored .wpimagehover-icon {
+  color: #fff;
+}
+/* line 169, ../scss/wpimagehover.scss */
+.wpimagehover-socials.wpimagehover-socials-colored .wpimagehover-icon.wpimagehover-icon-twitter {
+  background: #00ACED;
+}
+/* line 170, ../scss/wpimagehover.scss */
+.wpimagehover-socials.wpimagehover-socials-colored .wpimagehover-icon.wpimagehover-icon-facebook {
+  background: #3B5998;
+}
+/* line 171, ../scss/wpimagehover.scss */
+.wpimagehover-socials.wpimagehover-socials-colored .wpimagehover-icon.wpimagehover-icon-googleplus {
+  background: #D14836;
+}
+/* line 172, ../scss/wpimagehover.scss */
+.wpimagehover-socials.wpimagehover-socials-colored .wpimagehover-icon.wpimagehover-icon-pinterest {
+  background: #CB2027;
+}
+/* line 173, ../scss/wpimagehover.scss */
+.wpimagehover-socials.wpimagehover-socials-colored .wpimagehover-icon.wpimagehover-icon-linkedin {
+  background: #007FB1;
+}
+/* line 174, ../scss/wpimagehover.scss */
+.wpimagehover-socials.wpimagehover-socials-colored .wpimagehover-icon.wpimagehover-icon-stumbleupon {
+  background: #EB4924;
+}
+/* line 175, ../scss/wpimagehover.scss */
+.wpimagehover-socials.wpimagehover-socials-colored .wpimagehover-icon.wpimagehover-icon-digg {
+  background: #14589E;
+}
+/* line 176, ../scss/wpimagehover.scss */
+.wpimagehover-socials.wpimagehover-socials-colored .wpimagehover-icon.wpimagehover-icon-delicious {
+  background: #3274D1;
+}
+/* line 178, ../scss/wpimagehover.scss */
+.wpimagehover-socials.wpimagehover-socials-colored .wpimagehover-icon:hover {
+  background: #333;
+}
+
+/* line 186, ../scss/wpimagehover.scss */
+.wpimagehover-overflow .wpimagehover-socials .wpimagehover-icon {
+  font-size: 14px;
+  margin: 2px;
+}
+/* line 190, ../scss/wpimagehover.scss */
+.wpimagehover-overflow .wpimagehover-socials .wpimagehover-icon:before {
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+}
+/* line 197, ../scss/wpimagehover.scss */
+.wpimagehover-overflow .wpimagehover-button {
+  padding: 5px 10px;
+  font-size: 14px;
+}
+/* line 202, ../scss/wpimagehover.scss */
+.wpimagehover-overflow.wpimagehover-wrapper .wpimagehover-caption {
+  padding-top: 8px;
+}
+/* line 206, ../scss/wpimagehover.scss */
+.wpimagehover-overflow.wpimagehover-wrapper .wpimagehover-caption h3 {
+  font-size: 14px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+}

@@ -1,0 +1,273 @@
+<?PHP
+
+// Boostrap WP
+$wp_include = "../wp-load.php";
+$i = 0;
+while (!file_exists($wp_include) && $i++ < 10) {
+  $wp_include = "../$wp_include";
+}
+
+// let's load WordPress
+require($wp_include);
+
+// Get Options from DB
+//$tc = get_option('');
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Social Image Hover</title>
+<style type="text/css">
+
+#shortcodeform label{
+	display:block;
+	margin:10px 0px 5px 0px;
+	color:#21759B;
+	font-family:Arial, Helvetica, sans-serif;
+	font-weight:bold;
+	font-size:13px;
+	background:url(../images/mce-gear.png) left center no-repeat;
+	line-height:20px;
+	padding:0 0 0 24px;
+}
+
+#shortcodeform .input{
+	width:395px;
+    background: none repeat scroll 0 0 #F3F3F3;
+    border: 1px solid #DDDDDD;
+    color: #333333;
+    padding: 6px;
+	margin:5px 0px 10px 0px;
+	font-size:11px;
+}
+
+#shortcodeform .input.size{
+	width:80px !important;
+    background: none repeat scroll 0 0 #F3F3F3;
+    border: 1px solid #DDDDDD;
+    color: #333333;
+    padding: 6px;
+	margin:5px 0px 10px 0px;
+	font-size:11px;
+}
+
+#tcsh-insert{
+	padding:7px 11px;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	font-weight:bold;
+    background: none repeat scroll 0 0 #F3F3F3;
+    border: 1px solid #DDDDDD;
+    color: #999999 !important;
+	font-size:12px;
+	cursor:pointer;
+}
+
+#tcsh-insert:hover{
+	border:1px solid #bbbbbb;
+	color:#666666 !important;
+}
+
+</style>
+<link href="<?php echo get_option('siteurl') ?>/wp-includes/js/thickbox/thickbox.css" rel="stylesheet" type="text/css" />
+<script language="javascript" src="<?php echo get_option('siteurl') ?>/wp-includes/js/jquery/jquery.js"></script>
+<script language="javascript" src="<?php echo get_option('siteurl') ?>/wp-includes/js/thickbox/thickbox.js"></script>
+<script language="javascript" src="<?php echo get_option('siteurl') ?>/wp-includes/js/tinymce/tiny_mce_popup.js"></script>
+<script language="javascript" src="<?php echo get_option('siteurl') ?>/wp-includes/js/tinymce/utils/mctabs.js"></script>
+<script language="javascript" src="<?php echo get_option('siteurl') ?>/wp-includes/js/tinymce/utils/form_utils.js"></script>
+<script language="javascript" type="text/javascript">
+
+	jQuery(document).ready(function() {
+	
+		jQuery('#upload_image_button').click(function() {
+			 formfield = jQuery('#upload_image').attr('name');
+			 tb_show('', 'media-upload.php?type=image&amp;TB_iframe=true');
+			 return false;
+		});
+		
+		window.send_to_editor = function(html) {
+			 imgurl = jQuery('img',html).attr('src');
+			 jQuery('#upload_image').val(imgurl);
+			 tb_remove();
+		}
+	
+	});
+
+
+	// Start TinyMCE
+	function init() {
+		tinyMCEPopup.resizeToInnerSize();
+	}
+	
+	
+	// Function to auto-get image size
+	function updateSize(){
+		var imageUrl = document.getElementById('tcsh-image').value;
+		jQuery('<img/>').attr('src', imageUrl).load(function(){
+			rwidth = this.width;   // Note: $(this).width() will not
+			rheight = this.height; // work for in memory images.
+			document.getElementById('tcsh-width').value = rwidth;
+			document.getElementById('tcsh-height').value = rheight;
+		});
+	}
+	
+	
+	// Function to add the like locker shortcode to the editor
+	function addImage(){
+		
+		// Cache our form vars
+		var tcsh_image = document.getElementById('tcsh-image').value;
+		var tcsh_width = document.getElementById('tcsh-width').value;
+		var tcsh_height = document.getElementById('tcsh-height').value;
+		var tcsh_alt = document.getElementById('tcsh-alt').value;
+		var tcsh_pin_on = document.getElementById('tcsh-pin-on').value;
+		var tcsh_fb_on = document.getElementById('tcsh-fb-on').value;
+		var tcsh_fb_url = document.getElementById('tcsh-fb-url').value;
+		var tcsh_tweet_on = document.getElementById('tcsh-tweet-on').value;
+		var tcsh_tweet_url = document.getElementById('tcsh-tweet-url').value;
+		var tcsh_tweet = document.getElementById('tcsh-tweet').value;
+		var tcsh_plus_on = document.getElementById('tcsh-plus-on').value;
+		var tcsh_plus_url = document.getElementById('tcsh-plus-url').value;
+		var imgtag = '', pin = '', share = '', tweet = '', plus = '';
+		
+		// Build image tag
+		if(tcsh_pin_on == 'true'){pin = 'pin ';}
+		if(tcsh_fb_on == 'true'){share = 'share ';}
+		if(tcsh_tweet_on == 'true'){tweet = 'tweet ';}
+		if(tcsh_plus_on == 'true'){plus = 'plus';}
+		
+		imgtag = '<img src="'+tcsh_image+'" width="'+tcsh_width+'" height="'+tcsh_height+'" class="tc-hover '+pin+share+tweet+plus+'" data-fburl="'+tcsh_fb_url+'" data-tweeturl="'+tcsh_tweet_url+'" data-tweet="'+tcsh_tweet+'" data-plusurl="'+tcsh_plus_url+'" alt="'+tcsh_alt+'" />';
+			
+		// If TinyMCE runable
+		if(window.tinyMCE) {
+			
+			// Get the selected text in the editor
+			selected = tinyMCE.activeEditor.selection.getContent();
+			
+			// Send our modified shortcode to the editor with selected content				
+			window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, imgtag);
+
+			// Repaints the editor
+			tinyMCEPopup.editor.execCommand('mceRepaint');
+			
+			// Close the TinyMCE popup
+			tinyMCEPopup.close();
+			
+		} // end if
+		
+		return; // always R E T U R N
+
+	} // end add like locker function
+	
+</script>
+</head>
+
+<body>
+
+<div class="tabs">
+    <ul>
+        <li id="main_tab" class="current"><span><a href="javascript:mcTabs.displayTab('main_tab','main_panel');" onmousedown="return false;">Image Settings</a></span></li>
+      <li id="pinterest_tab" class=""><span><a href="javascript:mcTabs.displayTab('pinterest_tab','pinterest_panel');" onmousedown="return false;">Pinterest Settings</a></span></li>
+      <li id="facebook_tab" class=""><span><a href="javascript:mcTabs.displayTab('facebook_tab','facebook_panel');" onmousedown="return false;">Facebook Settings</a></span></li>
+      <li id="twitter_tab" class=""><span><a href="javascript:mcTabs.displayTab('twitter_tab','twitter_panel');" onmousedown="return false;">Twitter Settings</a></span></li>
+      <li id="google_tab" class=""><span><a href="javascript:mcTabs.displayTab('google_tab','google_panel');" onmousedown="return false;">Google Settings</a></span></li>
+    </ul>
+</div>
+
+<div id="thkBC_options" class="panel_wrapper">
+
+    <form method="post" action="" id="shortcodeform">
+
+    <div id="main_panel" class="panel current" style="height:350px;"><br />
+    
+        <label>Image URL</label>
+		<input name="tcsh-image" id="tcsh-image" type="text" class="input" value="" onblur="updateSize();" /><br />
+
+        <label>Dimensions (Width, Height)</label>
+		<input name="tcsh-width" id="tcsh-width" type="text" class="input size" value="" /> X <input name="tcsh-height" id="tcsh-height" type="text" class="input size" value="" /><br />
+        
+        <label for="tcsh-alt">Image ALT Tag</label>
+        <input name="tcsh-alt" id="tcsh-alt" type="text" class="input" value="" /><br /><br />
+                                          
+        <input name="tcsh-insert" type="button" id="tcsh-insert" value="Next &raquo;" onclick="javascript:mcTabs.displayTab('pinterest_tab','pinterest_panel');" />
+        <input name="tcsh-insert" type="button" id="tcsh-insert" value="Insert Image" onclick="addImage();" />                              
+                                  
+    </div>
+    
+
+    <div id="pinterest_panel" class="panel" style="height:350px;"><br />
+    
+        <label>Show Pin Button?</label>
+        <select name="tcsh-pin-on" class="input" id="tcsh-pin-on">
+            <option value="true" selected="selected">Yes</option>
+            <option value="false">No</option>
+        </select><br /><br />
+        
+        <input name="tcsh-insert" type="button" id="tcsh-insert" value="Next &raquo;" onclick="javascript:mcTabs.displayTab('facebook_tab','facebook_panel');" /> 
+        <input name="tcsh-insert" type="button" id="tcsh-insert" value="Insert Image" onclick="addImage();" />                              
+                                  
+    </div>
+
+
+    <div id="facebook_panel" class="panel" style="height:350px;"><br />
+    
+        <label>Show Share Button?</label>
+        <select name="tcsh-fb-on" class="input" id="tcsh-fb-on">
+            <option value="true" selected="selected">Yes</option>
+            <option value="false">No</option>
+        </select>
+
+        <label for="tcsh-fb-url">Share Button URL</label>
+        <input name="tcsh-fb-url" id="tcsh-fb-url" type="text" class="input" value="CURRENT" /><br /><br />
+
+        <input name="tcsh-insert" type="button" id="tcsh-insert" value="Next &raquo;" onclick="javascript:mcTabs.displayTab('twitter_tab','twitter_panel');" /> 
+        <input name="tcsh-insert" type="button" id="tcsh-insert" value="Insert Image" onclick="addImage();" />                              
+                                  
+    </div>
+
+
+    <div id="twitter_panel" class="panel" style="height:350px;"><br />
+    
+        <label>Show Tweet Button?</label>
+        <select name="tcsh-tweet-on" class="input" id="tcsh-tweet-on">
+            <option value="true" selected="selected">Yes</option>
+            <option value="false">No</option>
+        </select>
+        
+        <label for="tcsh-tweet-url">Tweet URL</label>
+        <input name="tcsh-tweet-url" id="tcsh-tweet-url" type="text" class="input" value="CURRENT" />
+        
+        <label for="tcsh-tweet">Optional Tweet Text</label>
+        <textarea name="tcsh-tweet" id="tcsh-tweet" id="tcsh-tweet" cols="" rows="3" class="input"></textarea><br /><br />
+
+        <input name="tcsh-insert" type="button" id="tcsh-insert" value="Next &raquo;" onclick="javascript:mcTabs.displayTab('google_tab','google_panel');" /> 
+        <input name="tcsh-insert" type="button" id="tcsh-insert" value="Insert Image" onclick="addImage();" />                              
+                                  
+    </div>
+    
+    
+    <div id="google_panel" class="panel" style="height:350px;"><br />
+    
+        <label>Show Google+ Button?</label>
+        <select name="tcsh-plus-on" class="input" id="tcsh-plus-on">
+            <option value="true" selected="selected">Yes</option>
+            <option value="false">No</option>
+        </select>
+
+        <label for="tcsh-plus-url">Plus Button URL</label>
+        <input name="tcsh-plus-url" id="tcsh-plus-url" type="text" class="input" value="CURRENT" /><br /><br />
+
+        <input name="tcsh-insert" type="button" id="tcsh-insert" value="Insert Image" onclick="addImage();" />                              
+                                  
+    </div>
+    
+    </form>
+
+</div>
+
+</body>
+</html>
