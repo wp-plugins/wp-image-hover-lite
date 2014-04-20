@@ -29,9 +29,9 @@ global $wpimagehover_lite;
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title><?php _e('Wordpress Image Hover Lite','wpimagehover')?></title>
 
-<link rel="stylesheet" href="<?php echo get_option('siteurl') ?>/wp-includes/js/tinymce/plugins/wpeditimage/css/editimage.css" type="text/css" media="all" />
+<link rel="stylesheet" href="<?php echo plugins_url( '../../css/editimage.css', __FILE__ ); ?>" type="text/css" media="all" />
 <link rel="stylesheet" href="<?php echo get_option('siteurl') ?>/wp-includes/css/buttons.css" type="text/css" media="all" />
-<link rel="stylesheet" href="<?php echo get_option('siteurl') ?>/wp-admin/css/colors.min.css" type="text/css" media="all" />
+<!-- <link rel="stylesheet" href="<?php echo get_option('siteurl') ?>/wp-admin/css/colors.min.css" type="text/css" media="all" /> -->
 <link rel="stylesheet" href="<?php echo plugins_url( '../../js/select2-3.4.6/select2.css', __FILE__ ); ?>" type="text/css" media="all" />
 <link rel="stylesheet" href="<?php echo plugins_url( '../../includes/redux-framework/ReduxCore/assets/css/vendor/elusive-icons/elusive-webfont.css', __FILE__ ); ?>" type="text/css" media="all" />
 <script language="javascript" src="<?php echo get_option('siteurl') ?>/wp-includes/js/jquery/jquery.js"></script>

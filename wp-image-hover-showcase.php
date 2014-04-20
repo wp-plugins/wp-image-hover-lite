@@ -4,7 +4,7 @@
 Plugin Name: Wordpress Image Hover Lite
 Plugin URI: http://codecanyon.net/user/phpbits?ref=phpbits
 Description: Increase social sharing to boost your website traffic with Wordpress Image Hover. If you decide to upgrade to <a href="http://codecanyon.net/item/wordpress-image-hover-showcase/7455102?ref=phpbits" target="_blank"><strong>Wordpress Image Hover Showcase</strong></a>, please deactivate Wordpress Image Hover Lite first.
-Version: 1.0
+Version: 1.0.1
 Author: phpbits
 Author URI: http://codecanyon.net/user/phpbits?ref=phpbits
 License: GPL2
