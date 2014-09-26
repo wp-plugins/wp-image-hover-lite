@@ -3,7 +3,7 @@ Contributors: phpbits
 Donate link: http://codecanyon.net/item/wordpress-image-hover-showcase/7455102?ref=phpbits
 Tags:  facebook, image hover, sharing, social hover, social media, social share, traffic, twitter, wordpress image hover, hover, image
 Requires at least: 3.8
-Tested up to: 3.9
+Tested up to: 4.0
 Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
