@@ -14,7 +14,7 @@ Easily add social sharing icons on every wordpress image hover via wysiwyg edito
 
 Increase social sharing to boost your website traffic with <strong>Wordpress Image Hover Lite</strong>. This plugin allows you to easily add social share icons on every images you've added via wordpress editor. 
 
-<strong>Compatible with the brand new WordPress 3.9 :)</strong>
+<strong>Compatible with the brand new WordPress 4.0 :)</strong>
 
 <h4>Features:</h4>
 * <strong>Responsive</strong> - Desktop, laptop, tablet or mobile phone, WP Image Hover will adjust and look good on it
